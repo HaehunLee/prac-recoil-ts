@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Flex } from '../../atoms';
 
@@ -17,7 +18,10 @@ const Header:React.FC<IHeader> = () => {
                 top:0
             }}
         >
-            <span>헤더</span>
+            <Flex>
+                <CustomNavLink exact to="/" activeStyle={{color:'blue'}}>홈</CustomNavLink>
+                <CustomNavLink exact to="/board/list" activeStyle={{color:'blue'}}>게시판</CustomNavLink>
+            </Flex>
             <span>헤더2</span>
         </Flex>
     )
@@ -47,4 +51,9 @@ const Content = styled(Flex)`
     height: calc(100vh - 50px);
     justify-content: flex-start;
     overflow-y: scroll;
+`
+
+const CustomNavLink = styled(NavLink)`
+    margin: 0 6px;
+    color : #242424;
 `

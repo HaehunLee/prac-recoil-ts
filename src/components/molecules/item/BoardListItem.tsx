@@ -3,21 +3,22 @@ import styled from 'styled-components';
 import { IBoard } from '../../../types';
 import { Flex } from '../../atoms';
 
-interface IBoardItem {
+interface IBoardListItem {
     item: IBoard;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const BoardItem:React.FC<IBoardItem> = ({item}) => {
+const BoardListItem:React.FC<IBoardListItem> = ({item, onClick}) => {
 
     return (
-        <View direction="column" justify="flex-start" align="flex-start">
+        <View direction="column" justify="flex-start" align="flex-start" onClick={onClick}>
             <span>{item.title}</span>
             <span>{item.description}</span>
         </View>
     )
 }
 
-export default BoardItem
+export default BoardListItem
 
 const View = styled(Flex)`
     padding: 20px;

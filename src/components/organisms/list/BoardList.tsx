@@ -1,18 +1,21 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import { IBoard } from '../../../types';
 import { Flex } from '../../atoms';
-import { BoardItem } from '../../molecules';
+import { BoardListItem } from '../../molecules';
 
 interface IBoardList {
     list: Array<IBoard>;
 }
 
 const BoardList:React.FC<IBoardList> = ({list}) => {
+    const history = useHistory()
+
     return (
         <View>
             {list.map(item => 
-                <BoardItem item={item} key={item.id}/>
+                <BoardListItem item={item} key={item.id} onClick={() => history.push(`/board/detail/${item.id}`)}/>
             )}
         </View>
     )
@@ -30,5 +33,6 @@ const View = styled(Flex)`
 
     > div {
         margin-bottom : 20px;
+        cursor: pointer;
     }
 `

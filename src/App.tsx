@@ -1,10 +1,10 @@
 import React from 'react';
-import { BoardListPage } from './pages';
+import Router from './pages/Router';
 
 function App() {
   return (
     <div className="App">
-      <BoardListPage />
+      <Router />
     </div>
   );
 }
